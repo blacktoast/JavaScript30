@@ -62,12 +62,26 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: right;
     }
 
   </style>
-
+      
   <script>
+      const secondhand=document.querySelector(".second-hand");
+      const minhand=document.querySelector(".min-hand");
+      const hour=document.querySelector(".hour-hand");
 
+      function setDate(){
+        const nowdate = new Date();
+        let second=nowdate.getSeconds();
+        let secondDeg=(second/360*100)+90;
+        secondhand.style.transform=`rotate(${secondDeg}deg)`;
+        console.log(secondDeg);
+
+      }
+      setDate();
+      setInterval(setDate, 1000);
 
   </script>
 </body>
